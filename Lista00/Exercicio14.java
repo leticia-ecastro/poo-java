@@ -1,0 +1,61 @@
+//Escreva um programa em Java para gerar uma matriz quadrada L de dimensão N. Imprimir os elementos da acima da diagonal secundária (inclusa).
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Exercicio14 {
+	
+	public static void main (String[] args) {
+		int n;
+        Scanner entrada = new Scanner(System.in);
+        Random gerador = new Random();
+        
+        do {
+            System.out.print("Informe as dimensões da matriz quadrada: ");
+            n = entrada.nextInt();
+            if (n <= 0) {
+                System.out.println("ERRO! Informe apenas valores válidos!");
+            }
+        } while (n <= 0);
+        
+        entrada.close();
+        int matriz[][] = new int[n][n];
+        
+        System.out.println();
+        
+        System.out.println("Gerando a Matriz L:");
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                matriz[i][j] = gerador.nextInt(10);
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        System.out.println();
+        
+        System.out.print("Diagonal Secundária: ");
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (i + j == n - 1) {
+					System.out.print(matriz[i][j] + " ");
+				}
+            }
+        }
+        
+        System.out.println();
+        
+        System.out.print("Elementos acima da Diagonal Secundária: ");
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (i + j == n - 2) {
+					System.out.print(matriz[i][j] + " ");
+				}
+				if (i + j == 0) {
+					System.out.print(matriz[i][j] + " ");
+				}
+            }
+        }
+    }
+}
+
